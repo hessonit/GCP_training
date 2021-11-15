@@ -62,7 +62,9 @@ In Cloud Shell go to Artifact Registry and check out your image
 *Note: to pull the image, run: `docker pull europe-central2-docker.pkg.dev/$GOOGLE_CLOUD_PROJECT/docker-repo/php-app:latest`
 
 ## 2. Automate Build Docker Image 
+Configure it via Cloud Shell -> Cloud Build -> Triggers
 
+*Note: Enable Cloud Build Api
 
 
 
