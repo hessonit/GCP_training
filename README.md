@@ -139,7 +139,7 @@ If workload identity is not your thing then:
   --iam-account php-db-account@gcp-training-final-task.iam.gserviceaccount.com`
 
   `kubectl create secret generic php-db-account-secret \
---from-file=service_account.json=~/key.json`
+--from-file=service_account.json=./key.json`
 
 
 secret/php-db-account-secret
