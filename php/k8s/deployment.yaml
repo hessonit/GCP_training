@@ -45,10 +45,6 @@ spec:
               secretKeyRef:
                 name: php-db-secret
                 key: database
-          volumeMounts:
-            - name: sa-secret-volume
-              mountPath: /secrets/
-              readOnly: true
         - name: cloud-sql-proxy
           image: gcr.io/cloudsql-docker/gce-proxy:1.17
           command:
@@ -58,6 +54,10 @@ spec:
             - "-credential_file=/secrets/service_account.json"
           securityContext:
             runAsNonRoot: true
+          volumeMounts:
+            - name: sa-secret-volume
+              mountPath: /secrets/
+              readOnly: true
       volumes:
       - name: sa-secret-volume
         secret:
