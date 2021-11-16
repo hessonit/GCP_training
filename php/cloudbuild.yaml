@@ -8,11 +8,15 @@ steps:
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'php/k8s/']
     env:
+    -  CLOUDSDK_COMPUTE_REGION=europe-central2
+    -  CLOUDSDK_COMPUTE_ZONE=europe-central2-a
     - 'CLOUDSDK_CONTAINER_CLUSTER=php-cluster'
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['set', 'image', 'deployment', 'php-app', 'php-app=${_IMAGE}']
     env:
+    -  CLOUDSDK_COMPUTE_REGION=europe-central2
+    -  CLOUDSDK_COMPUTE_ZONE=europe-central2-a
     - 'CLOUDSDK_CONTAINER_CLUSTER=php-cluster'
 
 images: ['${_IMAGE}']
