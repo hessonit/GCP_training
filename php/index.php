@@ -1,10 +1,9 @@
 <?php
 
 $name = getenv('NAME', true) ?: 'World';
-echo sprintf('Hello %s!\n', $name);
+echo sprintf('Hello %s!', $name);
 
-$otherName = getenv('DB_NAME', true) ?: 'UNKNOWN';
-echo sprintf('Hello %s!', $otherName);
+echo "\r\n";
 
 $servername = "127.0.0.1";
 $dbserver = getenv('DB_NAME', true);
