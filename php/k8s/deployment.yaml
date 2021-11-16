@@ -49,6 +49,15 @@ spec:
             - name: sa-secret-volume
               mountPath: /secrets/
               readOnly: true
+      - name: cloud-sql-proxy
+        image: gcr.io/cloudsql-docker/gce-proxy:1.17
+        command:
+          - "/cloud_sql_proxy"
+          - "-ip_address_types=PRIVATE"
+          - "-instances=gcp-training-final-task:europe-central2:php-db=tcp:3306"
+          - "-credential_file=/secrets/service_account.json"
+        securityContext:
+          runAsNonRoot: true
       volumes:
       - name: sa-secret-volume
         secret:
