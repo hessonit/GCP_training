@@ -21,6 +21,7 @@ spec:
       labels:
         app: php-app
     spec:
+      # serviceAccountName: php-db-account
       containers:
         - name: php-app
           image: "gcr.io/gcp-training-final-task/php-app:0.0.1"
@@ -28,9 +29,5 @@ spec:
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-          # ports:
-          #   - name: http
-          #     containerPort: 80
-          #   - name: health
-          #     containerPort: 81
+        
           
