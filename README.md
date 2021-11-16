@@ -64,10 +64,24 @@ In Cloud Shell go to Artifact Registry and check out your image
 ## 2. Automate Build Docker Image 
 Configure it via Cloud Shell -> Cloud Build -> Triggers
 
-*Note: Enable Cloud Build Api
+*Note1: Enable Cloud Build Api
+
+*Note2: Command line can be inferred from: https://cloud.google.com/build/docs/automating-builds/create-manage-triggers?&_ga=2.230316508.-1599207252.1635362861#build_trigger
+
+## 3. Manual Docker Image Deployment
 
 
 
+
+## 4. Automate Docker Image Deployment
+
+## 5. Expose your service over Cloud Load Balancer (Ingress) with an external static IP address
+
+## 6. Connect to Database using Cloud SQL Auth Proxy 
+
+## 7. Manual SQL migration scripts 
+
+## 8. Automate SQL migration scripts 
 
 
 
