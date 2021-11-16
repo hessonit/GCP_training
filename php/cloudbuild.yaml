@@ -24,4 +24,5 @@ images: ['${_IMAGE}']
 substitutions:
   _IMAGE: 'europe-central2-docker.pkg.dev/${PROJECT_ID}/docker-repo/php-app:${TAG_NAME:-${SHORT_SHA}}'
 
-  
+options:
+  logging: CLOUD_LOGGING_ONLY  
