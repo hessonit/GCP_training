@@ -45,10 +45,10 @@ spec:
               secretKeyRef:
                 name: php-db-secret
                 key: database
-        volumeMounts:
-          - name: sa-secret-volume
-            mountPath: /secrets/
-            readOnly: true
+          volumeMounts:
+            - name: sa-secret-volume
+              mountPath: /secrets/
+              readOnly: true
       volumes:
       - name: sa-secret-volume
         secret:
