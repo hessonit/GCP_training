@@ -6,14 +6,14 @@ echo sprintf('Hello %s!\n', $name);
 $otherName = getenv('DB_NAME', true) ?: 'UNKNOWN';
 echo sprintf('Hello %s!', $otherName);
 
-
+$servername = "localhost";
 $dbserver = getenv('DB_NAME', true);
 $dbuser = getenv('DB_USER', true);
 $dbpassword = getenv('DB_PASS', true);
 // In a production blog, we would not store the MySQL
 // password in the document root. Instead, we would store it in a
 // configuration file elsewhere on the web server VM instance.
-$conn = new mysqli($dbserver, $dbuser, $dbpassword);
+$conn = new mysqli($servername, $dbserver, $dbuser, $dbpassword);
 if (mysqli_connect_error()) {
         echo ("Database connection failed: " . mysqli_connect_error());
 } else {
