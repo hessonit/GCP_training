@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '${_IMAGE}', 'php/']
+
+images: ['${_IMAGE}']
+
+substitutions:
+  _IMAGE: 'europe-central2-docker.pkg.dev/${PROJECT_ID}/docker-repo/php-app:${TAG_NAME:-${SHORT_SHA}}'
+
+  

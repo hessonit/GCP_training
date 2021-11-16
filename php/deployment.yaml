@@ -8,7 +8,7 @@ metadata:
 spec:
   progressDeadlineSeconds: 600
   selector:
-    matchlabels:
+    matchLabels:
       app: php-app
   replicas: 1
   strategy: 
