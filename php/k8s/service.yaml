@@ -2,10 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: php-app
+  labels:
+    app: php-app
+  namespace: default
 spec:
   selector:
-     run: php-app
+     app: php-app
   ports:
   - protocol: TCP
     port: 80
+    targetPort: 80
   type: LoadBalancer
