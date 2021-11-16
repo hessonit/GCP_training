@@ -6,7 +6,7 @@ echo sprintf('Hello %s!\n', $name);
 $otherName = getenv('DB_NAME', true) ?: 'UNKNOWN';
 echo sprintf('Hello %s!', $otherName);
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $dbserver = getenv('DB_NAME', true);
 $dbuser = getenv('DB_USER', true);
 $dbpassword = getenv('DB_PASS', true);
