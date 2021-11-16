@@ -99,7 +99,7 @@ Or using deployment config:
 `kubectl edit deployment php-app`
 
 ## 4. Automate Docker Image Deployment
-*Note: Create service account for GKE deployment
+*Note: Create service account for GKE deployment: https://stackoverflow.com/questions/53420870/keep-getting-permissions-error-gcloud-container-clusters-get-credentials
 
 Configuration in Cloud Console: CloudBuild -> Triggers
 
@@ -111,6 +111,38 @@ Expose service(cmd):
 Create service via yaml config file: php/k8s/service.yaml
 
 ## 6. Connect to Database using Cloud SQL Auth Proxy 
+CloudConsole: SQL -> MySQL
+
+Connection name: gcp-training-final-task:europe-central2:php-db
+
+Create secrets:
+1. Secret Manager
+
+
+`kubectl create secret generic <SECRET-NAME> \
+    --from-literal=username=<DB-USER> \
+    --from-literal=password=<DB-PASS> \
+    --from-literal=database=<DB-NAME>`
+
+
+`kubectl create secret generic <SECRET-NAME> \
+  --from-file=<PATH-TO-FILE> \
+  --from-file=<PATH-TO-FILE>`
+
+if you want to delete it:
+kubectl delete secret php-db-secret --ignore-not-found
+
+
+If workload identity is not your thing then:
+
+`gcloud iam service-accounts keys create ~/key.json \
+  --iam-account php-db-account@gcp-training-final-task.iam.gserviceaccount.com`
+
+  `kubectl create secret generic php-db-account-secret \
+--from-file=service_account.json=~/key.json`
+
+
+secret/php-db-account-secret
 
 ## 7. Manual SQL migration scripts 
 
