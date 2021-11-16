@@ -62,7 +62,7 @@ In Cloud Shell go to Artifact Registry and check out your image
 *Note: to pull the image, run: `docker pull europe-central2-docker.pkg.dev/$GOOGLE_CLOUD_PROJECT/docker-repo/php-app:0.0.1`
 
 ## 2. Automate Build Docker Image 
-Configure it via Cloud Shell -> Cloud Build -> Triggers
+Configure it via Cloud Console -> Cloud Build -> Triggers
 
 *Note1: Enable Cloud Build Api
 
@@ -86,7 +86,7 @@ Create Kubernetes deployment:
 `kubectl create deployment php-app --image=gcr.io/$GOOGLE_CLOUD_PROJECT/php-app:0.0.1`
 
 Or using deployment config:
-`kubectl create -f deployment.yaml`
+`kubectl create -f k8s/deployment.yaml`
 
 // Update the image
 
@@ -99,14 +99,16 @@ Or using deployment config:
 `kubectl edit deployment php-app`
 
 ## 4. Automate Docker Image Deployment
+*Note: Create service account for GKE deployment
 
-
-
+Configuration in Cloud Console: CloudBuild -> Triggers
 
 ## 5. Expose your service over Cloud Load Balancer (Ingress) with an external static IP address
 
-Expose service:
+Expose service(cmd):
 `kubectl expose deployment php-app --type=LoadBalancer --port 8080`
+
+Create service via yaml config file: php/k8s/service.yaml
 
 ## 6. Connect to Database using Cloud SQL Auth Proxy 
 
