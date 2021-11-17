@@ -15,15 +15,23 @@ $dbpassword = getenv('DB_PASS', true);
 // In a production blog, we would not store the MySQL
 // password in the document root. Instead, we would store it in a
 // configuration file elsewhere on the web server VM instance.
-$conn = new mysqli($servername, $dbuser, $dbpassword, $dbserver);
+$mysqli = new mysqli($servername, $dbuser, $dbpassword, $dbserver);
 if (mysqli_connect_error()) {
         echo ("Database connection failed: " . mysqli_connect_error());
 } else {
-        echo ("Database connection succeeded.");
+    printf ("Database connection succeeded.\n");
 }
 
 
-$result = $conn->query("SELECT * FROM entries");
+$result = $mysqli->query("SELECT * FROM entries");
 printf("Select returned %d rows.\n", $result->num_rows);
 
+while ($row = $result -> fetch_row()) {
+    printf ("%s (%s)\n", $row[0], $row[1]);
+}
+$result -> free_result();
+
+
+
+$mysqli -> close();
 ?>
