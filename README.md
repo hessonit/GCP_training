@@ -135,8 +135,17 @@ Load key to GKE:
 
 ## 7. Manual SQL migration scripts 
 
+Run Cloud SQL Auth Proxy from docker:
 
+`docker run -d -p 127.0.0.1:3306:3306 gcr.io/cloudsql-docker/gce-proxy:1.19.1 /cloud_sql_proxy  -instances=gcp-training-final-task:europe-central2:php-db=tcp:0.0.0.0:3306`
 
+Run Migration from script:
+
+`docker run -v ~/github_hessonit_gcp_training/migration/:/migrations --network host migrate/migrate -path=/migrations/ -database "mysql://root:password@tcp(localhost:3306)/php_db" up 1`
+
+*up N -> upgrate N migrations
+
+**down N -> downgrade N migrations
 
 
 ## 8. Automate SQL migration scripts 
