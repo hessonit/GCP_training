@@ -21,14 +21,21 @@ if (mysqli_connect_error()) {
 } else {
     printf ("Database connection succeeded.\n");
 }
-
+echo "<br>";
 
 $result = $mysqli->query("SELECT * FROM entries");
 printf("Select returned %d rows.\n", $result->num_rows);
-
+echo "<br>";
+echo "<table>";
 while ($row = $result -> fetch_row()) {
-    printf ("%s (%s)\n", $row[0], $row[1]);
+    echo "<tr>";
+    echo "<td>" .  $row[0] . "</td>";
+    echo "<td>" .  $row[1] . "</td>";
+    echo "</tr>";
+
+    // printf ("%s (%s)\n", $row[0], $row[1]);
 }
+echo "</table>";
 $result -> free_result();
 
 
