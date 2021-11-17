@@ -6,7 +6,11 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
-    args: ['-c', 'cat /workspace/.git/github_hessonit_gcp_training/sql/1_delete.down.sql']
+    args: ['-c', 'ls /workspace/']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args: ['-c', 'ls /workspace/.git/']
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
