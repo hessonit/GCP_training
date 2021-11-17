@@ -1,0 +1,16 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['run', '-d', '-t', '${_AUTH_PROXY}', '/cloud_sql_proxy', '-instances=${_DB_CONNECTION}', '${_IMAGE}']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['run', '-v', 'sql/:/migrations', '--network', 'host', 'migrate/migrate', '-path=/migrations/', '-database', 'connectionParam', 'up', '1']
+
+
+
+
+substitutions:
+  _AUTH_PROXY: 'gcr.io/cloudsql-docker/gce-proxy:1.19.1'
+  _DB_CONNECTION: 'gcp-training-final-task:europe-central2:php-db=tcp:0.0.0.0:3306'
+  _MIGRATION_PATH: '~/github_hessonit_gcp_training/migration/:/migrations'
+options:
+  logging: CLOUD_LOGGING_ONLY  

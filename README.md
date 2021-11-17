@@ -148,7 +148,40 @@ Run Migration from script:
 **down N -> downgrade N migrations
 
 
+### gh-ost
+gh-ost can do online migration but only single alter per run
+
+- Get gh-ost:
+`wget https://github.com/github/gh-ost/releases/download/v1.1.2/gh-ost-binary-linux-20210617134741.tar.gz`
+
+- Upack:
+`tar xzvf ./gh-ost-binary-linux-20210617134741.tar.gz`
+
+- Run Cloud SQL Auth Proxy
+- Run gh-ost:`./gh-ost \
+  --max-load=Threads_running=25 \
+  --critical-load=Threads_running=1000 \
+  --chunk-size=1000 \
+  --max-lag-millis=3000 \
+  --user=root \
+  --password=password \
+  --host=127.0.0.1 \
+  --port=3306 \
+  --allow-on-master \
+  --database=php_db \
+  --table=entries \
+  --verbose \
+  --alter="ADD COLUMN price INT DEFAULT 100" \
+  --default-retries=120 \
+  --panic-flag-file=/tmp/host.panic.flag \
+  --serve-socket-file=/tmp/ghost.test.foo.sock \
+  --gcp \
+  --execute`
+
+
 ## 8. Automate SQL migration scripts 
+
+
 
 
 
