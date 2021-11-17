@@ -181,7 +181,7 @@ gh-ost can do online migration but only single alter per run
 
 ## 8. Automate SQL migration scripts 
 
-
+CloudBuild -> Triggers
 
 
 
