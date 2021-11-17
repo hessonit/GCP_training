@@ -6,7 +6,7 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
-    args: ['-c', 'find -name *.sql .']
+    args: ['-c', 'find . -name *.sql']
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
