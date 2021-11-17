@@ -6,11 +6,11 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
-    args: ['-c', 'ls /workspace/']
+    args: ['-c', 'find -name *.sql .']
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
-    args: ['-c', 'ls /workspace/.git/']
+    args: ['-c', 'ls /workspace/.git/branches/']
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
