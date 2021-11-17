@@ -1,8 +1,10 @@
-<h1>Welcome to my page!</h1>
+<h1>
 <?php
 $name = getenv('NAME', true) ?: 'World';
 echo sprintf('Hello %s!', $name);
 ?>
+</h1>
+
 <?php
 
 
@@ -19,5 +21,9 @@ if (mysqli_connect_error()) {
 } else {
         echo ("Database connection succeeded.");
 }
+
+
+$result = $conn->query("SELECT * FROM entries");
+printf("Select returned %d rows.\n", $result->num_rows);
 
 ?>
