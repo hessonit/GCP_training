@@ -6,7 +6,7 @@ steps:
     args: ['run', '-v', 
     '/workspace/.git/github_hessonit_gcp_training/sql/:/migrations', 
     '--network=host',
-    'migrate/migrate:v4.15.0',' -path=/migrations/',' -database=${_CONNECTION}', 'up 1']
+    'migrate/migrate',' -path=/migrations/',' -database=${_CONNECTION}', 'up 1']
 
     # args: ['run', '-v', '/workspace/.git/github_hessonit_gcp_training/sql/:/migrations', 'migrate/migrate:v4.15.0', '--network', 'host', '-path=/migrations/', '-database', '${_CONNECTION}', 'up', '1']
 
