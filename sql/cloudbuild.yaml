@@ -10,7 +10,7 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
-    args: ['-c', 'ls /sql/']
+    args: ['-c', 'realpath ./sql/1_migrate.down.sql']
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
