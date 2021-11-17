@@ -6,7 +6,7 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
-    args: ['-c', 'docker run -v /workspace/.git/github_hessonit_gcp_training/sql/:/migrations --network host migrate/migrate -path=/migrations/ -database ${_CONNECTION} up 1']
+    args: ['-c', 'docker run -v /workspace/.git/github_hessonit_gcp_training/sql/:/migrations --network host migrate/migrate -path=/migrations/ -database ${_CONNECTION} ${_DIRECTION} ${_NUMBER}']
     # , 
     # '/workspace/.git/github_hessonit_gcp_training/sql/:/migrations', 
     # '--network=host',
