@@ -1,7 +1,7 @@
 <h1>
 <?php
-$name = getenv('NAME', true) ?: 'World';
-echo sprintf('Hello %s!!!!', $name);
+$name = getenv('NAME', true) ?: 'Everyone';
+echo sprintf('Hello %s!', $name);
 ?>
 </h1>
 
